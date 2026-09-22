@@ -1,723 +1,864 @@
 <!DOCTYPE html>
-<html lang="ro" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Asociația C.R.E.D. | Centrul pentru Reformă, Echitate și Democrație</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              blue: '#1D4ED8',      // Albastru regal (Democrație & Reformă)
-              blueDark: '#173da8',
-              blueLight: '#eff6ff',
-              emerald: '#059669',   // Verde smarald (Mediu & Echitate)
-              emeraldDark: '#047857',
-              emeraldLight: '#ecfdf5',
-              navy: '#0f172a',
-            }
-          },
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    .gradient-hero-bg {
-      background: radial-gradient(circle at top right, rgba(29, 78, 216, 0.08) 0%, transparent 60%),
-                  radial-gradient(circle at bottom left, rgba(5, 150, 105, 0.08) 0%, transparent 60%);
-    }
+
+<html class="scroll-smooth" lang="ro"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Asociația C.R.E.D. | Centrul pentru Reformă, Echitate și Democrație</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+    body { font-family: 'Inter', sans-serif; color: #1e293b; background-color: #f8fafc; }
+    .lang-active { background-color: #1e3a8a !important; color: #ffffff !important; }
+    .lang-inactive { background-color: transparent !important; color: #64748b !important; }
+    .nav-active { color: #1e3a8a !important; font-weight: 700 !important; border-bottom: 2px solid #1d4ed8 !important; }
+    .filter-active { background-color: #1e3a8a !important; color: #ffffff !important; border-color: #1e3a8a !important; }
   </style>
 </head>
-<body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-brand-blue selection:text-white">
-
-  <!-- 1. HEADER & NAVIGAȚIE -->
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all duration-200 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
-        
-        <!-- Logo și Titlu Asociație -->
-        <a href="#hero" class="flex items-center gap-3.5 group">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIaI4pRKBFx8geVXAM0hMhiojr8k-873CzzFWlrQRip9t5TuVNUbrEsDEmWdWYmSOpQkVa5r8Fb9iS0SCDleczG6QR07ucGl0cRgya2f-as10rabBfBWp3LcAW0zBKVmCzTWXdCHVL8E5Pa6oTrIAFOs8gW7O4Otv2hyD_gSzeRVVbSS6nhY5jP_SRNlfQnR_S1SA9s0Z1nbpWhuWNEzFeV6Vq2EU4pxoi-tZswG-eS6PgzF_SzUMz6z2eEiWklKYLpu8" alt="Sigla Asociația C.R.E.D." class="h-12 w-auto object-contain rounded-lg p-0.5 shadow-sm group-hover:scale-105 transition-transform duration-200">
-          <div class="flex flex-col">
-            <span class="text-xl font-extrabold tracking-tight text-brand-blue group-hover:text-brand-blueDark transition-colors">C.R.E.D.</span>
-            <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider hidden sm:inline-block">Centrul pentru Reformă, Echitate și Democrație</span>
-          </div>
-        </a>
-
-        <!-- Meniu Desktop cu derulare lină -->
-        <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium text-slate-600">
-          <a href="#despre" class="hover:text-brand-blue transition-colors">Despre Noi</a>
-          <a href="#piloni" class="hover:text-brand-blue transition-colors">Piloni Strategici</a>
-          <a href="#proiecte" class="hover:text-brand-blue transition-colors">Proiecte</a>
-          <a href="#echipa" class="hover:text-brand-blue transition-colors">Echipa</a>
-          <a href="#implica-te" class="hover:text-brand-blue transition-colors">Implică-te</a>
-          <a href="#contact" class="hover:text-brand-blue transition-colors">Contact</a>
-        </nav>
-
-        <!-- CTA Header -->
-        <div class="hidden sm:flex items-center gap-3">
-          <a href="#doneaza" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold text-white bg-brand-emerald hover:bg-brand-emeraldDark shadow-sm hover:shadow transition-all duration-150 transform hover:-translate-y-0.5">
-            <i data-lucide="heart" class="w-4 h-4 text-emerald-200 fill-emerald-200"></i>
-            <span>Donează / Susține</span>
-          </a>
-        </div>
-
-        <!-- Buton Meniu Mobil -->
-        <button id="mobileMenuBtn" aria-label="Deschide meniul" class="lg:hidden p-2 rounded-lg text-slate-600 hover:text-brand-blue hover:bg-slate-100 transition-colors">
-          <i data-lucide="menu" id="menuIcon" class="w-6 h-6"></i>
-        </button>
-      </div>
-    </div>
-
-    <!-- Meniu Mobil Dropdown -->
-    <div id="mobileMenu" class="hidden lg:hidden border-b border-slate-200 bg-white px-4 pt-2 pb-6 space-y-3 shadow-lg">
-      <a href="#despre" class="block px-3 py-2 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-blue rounded-md">Despre Noi</a>
-      <a href="#piloni" class="block px-3 py-2 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-blue rounded-md">Piloni Strategici</a>
-      <a href="#proiecte" class="block px-3 py-2 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-blue rounded-md">Proiecte</a>
-      <a href="#echipa" class="block px-3 py-2 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-blue rounded-md">Echipa</a>
-      <a href="#implica-te" class="block px-3 py-2 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-blue rounded-md">Implică-te</a>
-      <a href="#contact" class="block px-3 py-2 text-base font-semibold text-slate-700 hover:bg-slate-50 hover:text-brand-blue rounded-md">Contact</a>
-      <div class="pt-2">
-        <a href="#doneaza" class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-base font-bold text-white bg-brand-emerald hover:bg-brand-emeraldDark shadow">
-          <i data-lucide="heart" class="w-4 h-4 fill-emerald-100"></i>
-          Donează / Susține C.R.E.D.
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <!-- 2. SECȚIUNEA HERO -->
-    <section id="hero" class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden gradient-hero-bg">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          <!-- Text Hero -->
-          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-100/80 border border-blue-200 text-brand-blue text-xs font-bold tracking-wide uppercase">
-              <span class="w-2 h-2 rounded-full bg-brand-blue animate-pulse"></span>
-              Implicare Civicǎ &amp; Dezvoltare Durabilă
-            </div>
-            
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.15] tracking-tight">
-              Pentru o societate <span class="text-brand-blue">echitabilă</span>, <span class="text-brand-emerald">democratică</span> și orientată spre viitor.
-            </h1>
-            
-            <p class="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
-              Promovăm reforma educațională, democrația participativă, incluziunea socială și digitalizarea în România, ancorând comunitățile în spațiul valoric european.
-            </p>
-
-            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-              <a href="#implica-te" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-bold text-white bg-brand-blue hover:bg-brand-blueDark shadow-lg shadow-blue-500/25 transition-all duration-150 transform hover:-translate-y-0.5">
-                <i data-lucide="user-plus" class="w-5 h-5"></i>
-                Devino Voluntar
-              </a>
-              <a href="#despre" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-slate-700 bg-white hover:bg-slate-100 border border-slate-200 shadow-sm transition-all duration-150">
-                Află mai multe
-                <i data-lucide="arrow-down" class="w-4 h-4"></i>
-              </a>
-            </div>
-
-            <!-- Indicatori cheie -->
-            <div class="pt-6 border-t border-slate-200/80 grid grid-cols-3 gap-4 text-center lg:text-left">
-              <div>
-                <p class="text-2xl sm:text-3xl font-extrabold text-brand-blue">6</p>
-                <p class="text-xs text-slate-500 font-medium">Piloni Strategici</p>
-              </div>
-              <div>
-                <p class="text-2xl sm:text-3xl font-extrabold text-brand-emerald">100%</p>
-                <p class="text-xs text-slate-500 font-medium">Inițiativă Tânără</p>
-              </div>
-              <div>
-                <p class="text-2xl sm:text-3xl font-extrabold text-slate-800">UE</p>
-                <p class="text-xs text-slate-500 font-medium">Valori Europene</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Compoziție Vizuală Hero -->
-          <div class="lg:col-span-5 relative">
-            <div class="relative mx-auto max-w-md lg:max-w-none">
-              <!-- Fundal decorativ -->
-              <div class="absolute -inset-1.5 bg-gradient-to-tr from-brand-blue to-brand-emerald rounded-3xl blur-lg opacity-30"></div>
-              
-              <div class="relative bg-white rounded-2xl p-6 sm:p-8 shadow-xl border border-slate-100 space-y-6">
-                <div class="flex items-center gap-4">
-                  <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center text-brand-blue shadow-inner">
-                    <i data-lucide="shield-check" class="w-7 h-7"></i>
-                  </div>
-                  <div>
-                    <h2 class="text-lg font-bold text-slate-900 leading-snug">Organizație Non-Guvernamentală</h2>
-                    <p class="text-xs text-slate-500">Înregistrată legal • Drepturi &amp; Valori Civice</p>
-                  </div>
-                </div>
-
-                <div class="p-4 rounded-xl bg-slate-50 border border-slate-100 text-sm text-slate-600 leading-relaxed italic">
-                  „Sprijinim dezvoltarea durabilă a societății românești prin transparență instituțională, educație non-formală și cooperare europeană continuă.”
-                </div>
-
-                <!-- Carduri mici interactive -->
-                <div class="space-y-3">
-                  <div class="flex items-center justify-between p-3 rounded-lg bg-blue-50/60 border border-blue-100">
-                    <span class="flex items-center gap-2.5 text-xs font-semibold text-brand-blue">
-                      <i data-lucide="book-open" class="w-4 h-4"></i> Erasmus+ &amp; Mobilități
-                    </span>
-                    <span class="text-[11px] font-bold bg-white text-brand-blue px-2 py-0.5 rounded shadow-xs">Activ</span>
-                  </div>
-                  <div class="flex items-center justify-between p-3 rounded-lg bg-emerald-50/60 border border-emerald-100">
-                    <span class="flex items-center gap-2.5 text-xs font-semibold text-brand-emeraldDark">
-                      <i data-lucide="users" class="w-4 h-4"></i> Sprijin Tineri NEETs
-                    </span>
-                    <span class="text-[11px] font-bold bg-white text-brand-emeraldDark px-2 py-0.5 rounded shadow-xs">Prioritate</span>
-                  </div>
-                  <div class="flex items-center justify-between p-3 rounded-lg bg-slate-100/70 border border-slate-200">
-                    <span class="flex items-center gap-2.5 text-xs font-semibold text-slate-700">
-                      <i data-lucide="cpu" class="w-4 h-4 text-slate-500"></i> Educație Media &amp; Digitală
-                    </span>
-                    <span class="text-[11px] font-bold bg-white text-slate-600 px-2 py-0.5 rounded shadow-xs">Comunitar</span>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- 3. SECȚIUNEA „DESPRE NOI & PILONI STRATEGICI” -->
-    <section id="despre" class="py-20 bg-white border-y border-slate-100">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <!-- Viziune C.R.E.D. -->
-        <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
-          <span class="text-xs font-bold text-brand-blue uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-full">Viziune &amp; Statut</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Despre Asociația C.R.E.D.</h2>
-          <div class="w-16 h-1 bg-brand-blue mx-auto rounded-full"></div>
-          <p class="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-            Asociația „Centrul pentru Reformă, Echitate și Democrație” (C.R.E.D.) s-a născut din convingerea că o democrație autentică are nevoie de cetățeni implicați, instituții transparente și un sistem educațional centrat pe competențele secolului XXI. Ne propunem să fim un catalizator pentru dialog social, sustenabilitate și incluziune activă.
+<body class="min-h-screen flex flex-col antialiased bg-slate-50 text-slate-800">
+<!-- HEADER -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<div class="flex items-center space-x-3 cursor-pointer" onclick="navigateToPage('home')">
+<img alt="C.R.E.D." class="w-10 h-10 rounded-md object-contain border border-slate-100 p-0.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqbiLzCDxmM7VU7kZ5yKH5IV40K3caJ10wXv3ongzWyRQIjizRa896pldxq79DVzh4X4ZlYx-2ZwBKUE9cDCx7XV8d6fbXKGeqeiUudNghENg3CpCAcjTRK0U7XvYcXeZEZbyDx36Kckfm4Rc1QQVvy-jvLZjgkmo1yYd6UH2jrH2R9jtJrJXyEXd9stc40NtBMnQtgAKBA6XFKJcIyagyRGoN5SUN0AEdbY3M1sRAFoxc2CnjElIwJV9Xu8OFrTJwPU4"/>
+<span class="text-xl font-bold tracking-tight text-blue-950">C.R.E.D.</span>
+</div>
+<nav aria-label="Navigare" class="hidden md:flex items-center gap-7">
+<button class="nav-active text-sm font-semibold pb-1 cursor-pointer transition" data-i18n="nav_home" id="nav-link-home" onclick="navigateToPage('home')">Acasă</button>
+<button class="text-slate-600 hover:text-blue-900 text-sm font-medium pb-1 cursor-pointer transition" data-i18n="nav_projects" id="nav-link-proiecte" onclick="navigateToPage('proiecte')">Proiecte</button>
+<button class="text-slate-600 hover:text-blue-900 text-sm font-medium pb-1 cursor-pointer transition" data-i18n="nav_team" id="nav-link-echipa" onclick="navigateToPage('echipa')">Echipa</button>
+<button class="text-slate-600 hover:text-blue-900 text-sm font-medium pb-1 cursor-pointer transition" data-i18n="nav_get_involved" onclick="navigateToPage('home'); scrollToSection('implicate')">Implică-te</button>
+<button class="text-slate-600 hover:text-blue-900 text-sm font-medium pb-1 cursor-pointer transition" data-i18n="nav_contact" onclick="navigateToPage('home'); scrollToSection('contact')">Contact</button>
+</nav>
+<div class="flex items-center gap-4 sm:gap-6">
+<div class="flex items-center bg-slate-100 p-1 rounded-lg border border-slate-200 text-xs font-semibold">
+<button class="lang-active px-2.5 py-1 rounded transition cursor-pointer" id="lang-btn-ro" onclick="window.setLanguage('ro')" type="button">RO</button>
+<button class="lang-inactive px-2.5 py-1 rounded transition cursor-pointer" id="lang-btn-en" onclick="window.setLanguage('en')" type="button">EN</button>
+</div>
+<button class="px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-semibold rounded-xl text-white bg-emerald-600 hover:bg-emerald-700 shadow-sm transition cursor-pointer" data-i18n="btn_donate" onclick="navigateToPage('home'); scrollToSection('implicate')">Donează / Susține</button>
+</div>
+</div>
+</div>
+</header>
+<!-- MAIN WRAPPER -->
+<main class="flex-grow">
+<!-- 1. ACASĂ -->
+<div class="page-view" id="page-home" style="display: block;">
+<!-- Hero -->
+<section class="bg-gradient-to-b from-blue-50/70 via-white to-slate-50 py-16 lg:py-20 border-b border-slate-200">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-100 text-blue-900 border border-blue-200 mb-6">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span data-i18n="home_hero_badge">ORGANIZAȚIE PENTRU REFORME CIVICE</span>
+</div>
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight">
+<span data-i18n="hero_t1">Pentru o societate</span>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-800 to-blue-600" data-i18n="hero_t2">echitabilă, democratică</span>
+<span data-i18n="hero_t3">și orientată spre</span>
+<span class="text-emerald-600" data-i18n="hero_t4">viitor.</span>
+</h1>
+<p class="text-base sm:text-lg text-slate-600 mb-8 max-w-2xl mx-auto" data-i18n="hero_desc">
+            Asociația C.R.E.D. catalizează implicarea tinerilor, integritatea instituțională și soluțiile inovatoare pentru dezvoltarea comunităților durabile din România.
           </p>
-        </div>
-
-        <!-- Grilă 6 Piloni Principali de Activitate -->
-        <div id="piloni" class="pt-4">
-          <div class="text-center mb-10">
-            <h3 class="text-2xl sm:text-3xl font-bold text-slate-900">Piloni Strategici de Activitate</h3>
-            <p class="text-sm text-slate-500 mt-2">Domeniile fundamentale stabilite prin statutul oficial al organizației</p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+<button class="w-full sm:w-auto px-6 py-3 rounded-xl bg-blue-900 hover:bg-blue-800 text-white font-semibold shadow transition cursor-pointer" data-i18n="btn_view_projects" onclick="navigateToPage('proiecte')">Descoperă Proiectele Noastre</button>
+<button class="w-full sm:w-auto px-6 py-3 rounded-xl bg-white border border-slate-300 hover:bg-slate-100 text-slate-800 font-semibold transition cursor-pointer" data-i18n="btn_view_team" onclick="navigateToPage('echipa')">Cunoaște Echipa C.R.E.D. →</button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-left">
+<div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs"><div class="text-3xl font-extrabold text-blue-900">6</div><div class="text-xs font-medium text-slate-600 mt-1" data-i18n="stat_pillars">Piloni Strategici</div></div>
+<div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs"><div class="text-3xl font-extrabold text-emerald-600">100%</div><div class="text-xs font-medium text-slate-600 mt-1" data-i18n="stat_transparency">Transparență &amp; Răspundere</div></div>
+<div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs"><div class="text-3xl font-extrabold text-blue-900">30+</div><div class="text-xs font-medium text-slate-600 mt-1" data-i18n="stat_volunteers">Voluntari &amp; Colaboratori</div></div>
+<div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs"><div class="text-3xl font-extrabold text-emerald-600">3</div><div class="text-xs font-medium text-slate-600 mt-1" data-i18n="stat_board">Membri Fondatori</div></div>
+</div>
+</div>
+</section>
+<!-- Despre Noi -->
+<section class="py-16 bg-white border-b border-slate-200" id="despre">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+<div class="lg:col-span-7 space-y-5">
+<span class="text-xs font-bold uppercase tracking-wider text-blue-800 bg-blue-50 px-3 py-1 rounded" data-i18n="about_tag">Identitate &amp; Misiune</span>
+<h2 class="text-3xl font-extrabold text-slate-900" data-i18n="about_title">Despre Asociația C.R.E.D.</h2>
+<p class="text-slate-600 leading-relaxed text-sm sm:text-base" data-i18n="about_text">
+                Asociația „Centrul pentru Reformă, Echitate și Democrație” (C.R.E.D.) s-a născut din determinarea unei generații tinere de a contribui activ și structurat la dezvoltarea României. Suntem o organizație neguvernamentală apolitică dedicată formării liderilor civici și echității sociale.
+              </p>
+<div class="space-y-3 pt-2">
+<div class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 text-xs font-bold">✓</span><span class="text-sm text-slate-700" data-i18n="about_f1">Consolidarea dialogului constructiv între decidenții publici, mediul universitar și comunități.</span></div>
+<div class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 text-xs font-bold">✓</span><span class="text-sm text-slate-700" data-i18n="about_f2">Dezvoltarea programelor de educație civică, gândire critică și combatere a dezinformării.</span></div>
+<div class="flex items-start gap-3"><span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 text-xs font-bold">✓</span><span class="text-sm text-slate-700" data-i18n="about_f3">Asigurarea egalității de șanse pentru tinerii proveniți din zone rurale și medii vulnerabile.</span></div>
+</div>
+</div>
+<div class="lg:col-span-5 bg-gradient-to-br from-blue-950 to-slate-900 rounded-3xl p-7 text-white shadow-lg">
+<div class="flex items-center space-x-3 mb-5">
+<img alt="Logo" class="w-12 h-12 rounded-lg bg-white p-1 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCogJXF3AZ2-yDnqdScsBEg9rF2WwtbYpMAy4FA8O31RKd_cimthpXVHytK00WTN6X9v_A4vEiPcUXmFcF_CyiZk9Eqw_JTspXhS7lAQEZVxTvP9sGNiyZCLWxcXFq_CbyDL3g0D137daFLOFNP6HGR7yxaQcYxFjCt0p2IoRGcA7D34E45TnLT0pqRyzZgBsyeKLwiHaxEAqOatar1zC3PpQF5Z563TCA879SeOpcJ7CsgClCpC6QHYiCKMbB_f2o8dl0"/>
+<div>
+<h3 class="text-lg font-bold">C.R.E.D. România</h3>
+<p class="text-xs text-blue-200" data-i18n="about_card_sub">Dovadă disponibilitate MJ: 229231</p>
+</div>
+</div>
+<p class="text-slate-200 italic mb-5 text-sm border-l-2 border-emerald-400 pl-3 leading-relaxed" data-i18n="about_quote">
+                „Democrația nu este doar un cadru constituțional, ci o practică zilnică de responsabilitate, curaj civic și solidaritate comunitară.”
+              </p>
+<div class="grid grid-cols-2 gap-3 text-center text-xs">
+<div class="bg-white/10 rounded-xl p-3 border border-white/10"><div class="text-xl font-bold text-emerald-400">100%</div><span class="text-slate-300" data-i18n="stat_apolitical">Apolitic &amp; Independent</span></div>
+<div class="bg-white/10 rounded-xl p-3 border border-white/10"><div class="text-xl font-bold text-blue-300">Național</div><span class="text-slate-300" data-i18n="stat_impact">Impact &amp; Inițiative EU</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Piloni Strategici -->
+<section class="py-16 bg-slate-50 border-b border-slate-200" id="piloni">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-12">
+<span class="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded" data-i18n="pillars_tag">Direcții de Impact</span>
+<h2 class="text-3xl font-extrabold text-slate-900 mt-2" data-i18n="pillars_title">Piloni Strategici de Activitate</h2>
+<p class="text-slate-600 text-sm sm:text-base mt-2" data-i18n="pillars_desc">Intervențiile noastre civice se concentrează pe 6 direcții fundamentale pentru societatea contemporană.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-white p-6 rounded-2xl border border-slate-200 hover:shadow-md transition"><div class="w-10 h-10 bg-blue-50 text-blue-800 rounded-lg flex items-center justify-center font-bold mb-4">01</div><h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="pil_1_title">Educație &amp; Formare</h3><p class="text-xs sm:text-sm text-slate-600" data-i18n="pil_1_desc">Ateliere de gândire critică, simulări civice și ateliere de formare non-formală pentru elevi și studenți.</p></div>
+<div class="bg-white p-6 rounded-2xl border border-slate-200 hover:shadow-md transition"><div class="w-10 h-10 bg-emerald-50 text-emerald-800 rounded-lg flex items-center justify-center font-bold mb-4">02</div><h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="pil_2_title">Democrație &amp; Civism</h3><p class="text-xs sm:text-sm text-slate-600" data-i18n="pil_2_desc">Monitorizarea deciziilor publice, rapoarte de transparență decizională și stimularea participării la vot.</p></div>
+<div class="bg-white p-6 rounded-2xl border border-slate-200 hover:shadow-md transition"><div class="w-10 h-10 bg-blue-50 text-blue-800 rounded-lg flex items-center justify-center font-bold mb-4">03</div><h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="pil_3_title">Incluziune Socială</h3><p class="text-xs sm:text-sm text-slate-600" data-i18n="pil_3_desc">Sprijinirea tinerilor vulnerabili din mediul rural, reducerea inegalităților și promovarea integrării sociale.</p></div>
+<div class="bg-white p-6 rounded-2xl border border-slate-200 hover:shadow-md transition"><div class="w-10 h-10 bg-emerald-50 text-emerald-800 rounded-lg flex items-center justify-center font-bold mb-4">04</div><h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="pil_4_title">Digitalizare &amp; Media Literacy</h3><p class="text-xs sm:text-sm text-slate-600" data-i18n="pil_4_desc">Combaterea dezinformării, securitate cibernetică și utilizare responsabilă a noilor tehnologii AI.</p></div>
+<div class="bg-white p-6 rounded-2xl border border-slate-200 hover:shadow-md transition"><div class="w-10 h-10 bg-blue-50 text-blue-800 rounded-lg flex items-center justify-center font-bold mb-4">05</div><h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="pil_5_title">Mediu &amp; Sustenabilitate</h3><p class="text-xs sm:text-sm text-slate-600" data-i18n="pil_5_desc">Responsabilitate ecologică, economie circulară la nivel local și conservarea patrimoniului natural.</p></div>
+<div class="bg-white p-6 rounded-2xl border border-slate-200 hover:shadow-md transition"><div class="w-10 h-10 bg-emerald-50 text-emerald-800 rounded-lg flex items-center justify-center font-bold mb-4">06</div><h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="pil_6_title">Antreprenoriat Social</h3><p class="text-xs sm:text-sm text-slate-600" data-i18n="pil_6_desc">Mentorat pentru inițiative comunitare etice și conectare cu oportunități de finanțare europeană.</p></div>
+</div>
+</div>
+</section>
+<!-- Implică-te -->
+<section class="py-16 bg-white border-b border-slate-200" id="implicate">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-12">
+<span class="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded" data-i18n="involve_tag">Participare Activă</span>
+<h2 class="text-3xl font-extrabold text-slate-900 mt-2" data-i18n="involve_title">Cum te poți implica</h2>
+<p class="text-slate-600 text-sm sm:text-base mt-2" data-i18n="involve_desc">Fiecare contribuție contează. Alege modalitatea potrivită pentru tine.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between text-center">
+<div>
+<div class="w-12 h-12 mx-auto rounded-full bg-blue-100 text-blue-800 flex items-center justify-center font-bold mb-4">🤝</div>
+<h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="inv_1_t">Fii Voluntar</h3>
+<p class="text-xs sm:text-sm text-slate-600 mb-6" data-i18n="inv_1_d">Implică-te în organizarea atelierelor, redactarea rapoartelor de cercetare sau comunicare publică.</p>
+</div>
+<button class="w-full py-2.5 rounded-xl bg-blue-900 text-white font-semibold text-xs sm:text-sm hover:bg-blue-800 transition cursor-pointer" data-i18n="inv_1_b" onclick="scrollToSection('contact')">Aplică ca Voluntar</button>
+</div>
+<div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between text-center">
+<div>
+<div class="w-12 h-12 mx-auto rounded-full bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold mb-4">📄</div>
+<h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="inv_2_t">Redirecționează 3.5%</h3>
+<p class="text-xs sm:text-sm text-slate-600 mb-6" data-i18n="inv_2_d">Direcționează fără costuri suplimentare cota din impozitul pe venit către activitatea C.R.E.D.</p>
+</div>
+<a class="w-full py-2.5 rounded-xl bg-emerald-600 text-white font-semibold text-xs sm:text-sm hover:bg-emerald-700 transition block cursor-pointer" data-i18n="inv_2_b" href="mailto:contact@ongcred.ro?subject=Formular%20230%20CRED">Solicită Formularul 230</a>
+</div>
+<div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between text-center">
+<div>
+<div class="w-12 h-12 mx-auto rounded-full bg-blue-100 text-blue-800 flex items-center justify-center font-bold mb-4">🏛️</div>
+<h3 class="text-lg font-bold text-slate-900 mb-2" data-i18n="inv_3_t">Parteneriate Instituționale</h3>
+<p class="text-xs sm:text-sm text-slate-600 mb-6" data-i18n="inv_3_d">Susține inițiativele pe termen lung prin colaborări universitare, CSR sau parteneriate civice.</p>
+</div>
+<a class="w-full py-2.5 rounded-xl bg-slate-800 text-white font-semibold text-xs sm:text-sm hover:bg-slate-900 transition block cursor-pointer" data-i18n="inv_3_b" href="mailto:contact@ongcred.ro?subject=Parteneriat%20CRED">Contactează-ne</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact -->
+<section class="py-16 bg-slate-50" id="contact">
+<div class="max-w-2xl mx-auto px-4 sm:px-6">
+<div class="text-center mb-8">
+<span class="text-xs font-bold uppercase tracking-wider text-blue-800 bg-blue-100 px-3 py-1 rounded" data-i18n="contact_tag">Conectare</span>
+<h2 class="text-3xl font-extrabold text-slate-900 mt-2" data-i18n="contact_title">Contactează-ne sau Aplică</h2>
+<p class="text-slate-600 text-xs sm:text-sm mt-1" data-i18n="contact_sub">Trimite-ne un mesaj și echipa C.R.E.D. îți va răspunde în cel mai scurt timp.</p>
+</div>
+<div class="hidden mb-6 p-4 rounded-xl bg-emerald-100 text-emerald-800 text-xs sm:text-sm font-semibold text-center" data-i18n="form_success" id="form-msg">
+            Mesajul tău a fost trimis cu succes! Îți mulțumim.
           </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <!-- Pilon 1: Educație & Formare -->
-            <div class="group relative bg-white rounded-2xl p-7 border border-slate-200 hover:border-brand-blue hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300">
-              <div class="w-14 h-14 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center mb-5 group-hover:bg-brand-blue group-hover:text-white transition-colors duration-200">
-                <i data-lucide="graduation-cap" class="w-7 h-7"></i>
-              </div>
-              <h4 class="text-xl font-bold text-slate-900 mb-2">1. Educație &amp; Formare</h4>
-              <p class="text-sm text-slate-600 leading-relaxed">
-                Promovarea conceptului de <em>lifelong learning</em> (învățare pe tot parcursul vieții), dezvoltarea de parteneriate și proiecte prin programele europene <strong>Erasmus+</strong> și mobilități internaționale pentru tineri.
-              </p>
-              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-brand-blue">
-                <span>Erasmus+ • Mobilitate Tineret</span>
-              </div>
-            </div>
-
-            <!-- Pilon 2: Democrație & Civism -->
-            <div class="group relative bg-white rounded-2xl p-7 border border-slate-200 hover:border-brand-blue hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300">
-              <div class="w-14 h-14 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center mb-5 group-hover:bg-brand-blue group-hover:text-white transition-colors duration-200">
-                <i data-lucide="landmark" class="w-7 h-7"></i>
-              </div>
-              <h4 class="text-xl font-bold text-slate-900 mb-2">2. Democrație &amp; Civism</h4>
-              <p class="text-sm text-slate-600 leading-relaxed">
-                Stimularea transparenței instituționale, consolidarea participării civice la nivel local și național, inițiative de advocacy pentru protejarea statului de drept și apărarea drepturilor fundamentale.
-              </p>
-              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-brand-blue">
-                <span>Transparență • Advocacy Civic</span>
-              </div>
-            </div>
-
-            <!-- Pilon 3: Incluziune Socială -->
-            <div class="group relative bg-white rounded-2xl p-7 border border-slate-200 hover:border-brand-emerald hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300">
-              <div class="w-14 h-14 rounded-xl bg-emerald-50 text-brand-emerald flex items-center justify-center mb-5 group-hover:bg-brand-emerald group-hover:text-white transition-colors duration-200">
-                <i data-lucide="heart-handshake" class="w-7 h-7"></i>
-              </div>
-              <h4 class="text-xl font-bold text-slate-900 mb-2">3. Incluziune Socială</h4>
-              <p class="text-sm text-slate-600 leading-relaxed">
-                Sprijin direct și programe de mentorat pentru tineri din categoria <strong>NEETs</strong>, integrarea grupurilor vulnerabile, egalitate de șanse pentru minorități și facilitarea accesibilității persoanelor cu dizabilități.
-              </p>
-              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-brand-emeraldDark">
-                <span>Tineri NEETs • Echitate Socială</span>
-              </div>
-            </div>
-
-            <!-- Pilon 4: Digitalizare & Inovare -->
-            <div class="group relative bg-white rounded-2xl p-7 border border-slate-200 hover:border-brand-blue hover:shadow-xl hover:shadow-blue-500/5 transition-all duration-300">
-              <div class="w-14 h-14 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center mb-5 group-hover:bg-brand-blue group-hover:text-white transition-colors duration-200">
-                <i data-lucide="laptop" class="w-7 h-7"></i>
-              </div>
-              <h4 class="text-xl font-bold text-slate-900 mb-2">4. Digitalizare &amp; Inovare</h4>
-              <p class="text-sm text-slate-600 leading-relaxed">
-                Reducerea decalajului digital între mediul urban și cel rural, ateliere de educație media împotriva dezinformării și promovarea alfabetizării digitale etice în rândul noilor generații.
-              </p>
-              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-brand-blue">
-                <span>Educație Media • Cyber Literacy</span>
-              </div>
-            </div>
-
-            <!-- Pilon 5: Mediu & Sustenabilitate -->
-            <div class="group relative bg-white rounded-2xl p-7 border border-slate-200 hover:border-brand-emerald hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300">
-              <div class="w-14 h-14 rounded-xl bg-emerald-50 text-brand-emerald flex items-center justify-center mb-5 group-hover:bg-brand-emerald group-hover:text-white transition-colors duration-200">
-                <i data-lucide="leaf" class="w-7 h-7"></i>
-              </div>
-              <h4 class="text-xl font-bold text-slate-900 mb-2">5. Mediu &amp; Sustenabilitate</h4>
-              <p class="text-sm text-slate-600 leading-relaxed">
-                Campanii de educație ecologică, acțiuni pentru tranziția verde și economie circulară, protejarea patrimoniului natural și implicarea voluntarilor în protejarea mediului înconjurător.
-              </p>
-              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-brand-emeraldDark">
-                <span>Economie Circulară • Green Deal</span>
-              </div>
-            </div>
-
-            <!-- Pilon 6: Antreprenoriat Social -->
-            <div class="group relative bg-white rounded-2xl p-7 border border-slate-200 hover:border-brand-emerald hover:shadow-xl hover:shadow-emerald-500/5 transition-all duration-300">
-              <div class="w-14 h-14 rounded-xl bg-emerald-50 text-brand-emerald flex items-center justify-center mb-5 group-hover:bg-brand-emerald group-hover:text-white transition-colors duration-200">
-                <i data-lucide="trending-up" class="w-7 h-7"></i>
-              </div>
-              <h4 class="text-xl font-bold text-slate-900 mb-2">6. Antreprenoriat Social</h4>
-              <p class="text-sm text-slate-600 leading-relaxed">
-                Stimularea economiei sociale în rândul tinerilor, incubatoare de idei de impact comunitar și sprijinirea inițiativelor sustenabile care rezolvă probleme reale ale societății românești.
-              </p>
-              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-brand-emeraldDark">
-                <span>Start-up Comunitar • Impact</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- SECȚIUNE PROIECTE ÎN DESFĂȘURARE -->
-    <section id="proiecte" class="py-16 bg-slate-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-2xl mx-auto mb-12">
-          <span class="text-xs font-bold text-brand-emerald uppercase tracking-widest bg-emerald-50 px-3 py-1 rounded-full">Acțiune Concretă</span>
-          <h2 class="text-3xl font-extrabold text-slate-900 mt-3">Proiecte &amp; Inițiative C.R.E.D.</h2>
-          <p class="text-sm text-slate-600 mt-2">Cum transformăm obiectivele statutare în schimbare tangibilă în comunitate.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
-            <div>
-              <div class="text-xs font-bold text-brand-blue uppercase mb-2">Educație Civicǎ</div>
-              <h3 class="text-lg font-bold text-slate-900 mb-2">Laboratorul de Democrație pentru Liceeni</h3>
-              <p class="text-sm text-slate-600 leading-relaxed">Sesiuni interactive de educație juridică și constituțională menite să explice mecanismele de decizie publică și votul conștient.</p>
-            </div>
-            <div class="mt-6 flex items-center justify-between text-xs text-slate-500 border-t border-slate-100 pt-3">
-              <span>București &amp; Ilfov</span>
-              <span class="font-semibold text-brand-blue">Ediția I</span>
-            </div>
-          </div>
-
-          <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
-            <div>
-              <div class="text-xs font-bold text-brand-emerald uppercase mb-2">Oportunități Europene</div>
-              <h3 class="text-lg font-bold text-slate-900 mb-2">Erasmus+ Youth Dialogue &amp; Mobility</h3>
-              <p class="text-sm text-slate-600 leading-relaxed">Dezvoltarea rețelei de parteneriate internaționale pentru schimburi de tineri cu accent pe competențe verzi și drepturile omului.</p>
-            </div>
-            <div class="mt-6 flex items-center justify-between text-xs text-slate-500 border-t border-slate-100 pt-3">
-              <span>Spațiul UE</span>
-              <span class="font-semibold text-brand-emerald">În Pregătire</span>
-            </div>
-          </div>
-
-          <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col justify-between">
-            <div>
-              <div class="text-xs font-bold text-amber-600 uppercase mb-2">Inovație &amp; Drepturi</div>
-              <h3 class="text-lg font-bold text-slate-900 mb-2">Ghidul Tânărului Informator</h3>
-              <p class="text-sm text-slate-600 leading-relaxed">Campanie digitală pentru combaterea fake news și a discursului instigator la ură pe rețelele sociale, cu instrumente practice de verificare a surselor.</p>
-            </div>
-            <div class="mt-6 flex items-center justify-between text-xs text-slate-500 border-t border-slate-100 pt-3">
-              <span>Online / Național</span>
-              <span class="font-semibold text-slate-700">Lansare 2026</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. SECȚIUNEA „ECHIPA DE CONDUCERE” -->
-    <section id="echipa" class="py-20 bg-white border-t border-slate-100">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="max-w-3xl mx-auto text-center space-y-3 mb-16">
-          <span class="text-xs font-bold text-brand-blue uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-full">Consiliul Director</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Echipa de Conducere</h2>
-          <div class="w-16 h-1 bg-brand-blue mx-auto rounded-full"></div>
-          <p class="text-base text-slate-600 max-w-xl mx-auto">
-            Consiliul Director coordonează activitatea asociației în deplină conformitate cu statutul și principiile de transparență și integritate.
+<form class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4" onsubmit="event.preventDefault(); document.getElementById('form-msg').classList.remove('hidden'); this.reset();">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="lbl_name">Nume &amp; Prenume *</label>
+<input class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm" data-i18n-placeholder="ph_name" placeholder="ex. Ion Popescu" required="" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="lbl_email">Email *</label>
+<input class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm" data-i18n-placeholder="ph_email" placeholder="ex. contact@exemplu.ro" required="" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="lbl_phone">Telefon</label>
+<input class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm" data-i18n-placeholder="ph_phone" placeholder="0772 142 186" type="tel"/>
+</div>
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="lbl_interest">Domeniu de Interes</label>
+<select class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm bg-white">
+<option data-i18n="opt_1" value="educatie">Educație &amp; Democrație</option>
+<option data-i18n="opt_2" value="erasmus">Erasmus+ &amp; Tineret</option>
+<option data-i18n="opt_3" value="digital">Media Literacy &amp; Digitalizare</option>
+<option data-i18n="opt_4" value="mediu">Mediu &amp; Sustenabilitate</option>
+<option data-i18n="opt_5" value="general">Voluntariat General</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block text-xs font-semibold text-slate-700 mb-1" data-i18n="lbl_msg">Mesaj *</label>
+<textarea class="w-full px-3 py-2 border border-slate-300 rounded-lg text-sm" data-i18n-placeholder="ph_msg" placeholder="Cum vrei să colaborăm sau de ce vrei să te alături Asociației C.R.E.D.?" required="" rows="3"></textarea>
+</div>
+<button class="w-full py-3 bg-blue-900 hover:bg-blue-800 text-white font-semibold rounded-xl text-sm transition cursor-pointer" data-i18n="btn_send" type="submit">Trimite Mesajul</button>
+</form>
+</div>
+</section>
+</div>
+<!-- 2. PROIECTE -->
+<div class="page-view" id="page-proiecte" style="display: none;">
+<section class="bg-gradient-to-b from-blue-50/70 via-white to-slate-50 py-16 border-b border-slate-200 text-center">
+<div class="max-w-4xl mx-auto px-4 sm:px-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-100 text-blue-900 border border-blue-200 mb-4">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span data-i18n="proj_hero_badge">IMPACT CIVIC ÎN ACȚIUNE</span>
+</div>
+<h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-4">
+<span data-i18n="proj_t1">Proiecte și</span>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-800 to-blue-600" data-i18n="proj_t2">Inițiative Civice</span>
+</h1>
+<p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mb-8" data-i18n="proj_sub">
+            Transformăm principiile democratice, transparența și solidaritatea civică în acțiuni măsurabile pentru tineri și comunități.
           </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          
-          <!-- Lider 1: Mihai-Cosmin Pârlici-Nicolaescu -->
-          <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200/90 text-center hover:shadow-lg transition-all duration-200">
-            <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-brand-blue to-blue-400 text-white font-bold text-2xl flex items-center justify-center mx-auto mb-5 shadow-md">
-              MP
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 leading-snug">Mihai-Cosmin Pârlici-Nicolaescu</h3>
-            <p class="text-sm font-bold text-brand-blue uppercase tracking-wider mt-1 mb-3">Președinte</p>
-            <p class="text-xs text-slate-500 leading-relaxed mb-4">
-              Coordonează direcția strategică a asociației, relațiile instituționale și reprezentarea C.R.E.D. în forurile naționale și europene.
-            </p>
-            <div class="pt-3 border-t border-slate-200/70 flex justify-center gap-3 text-slate-400">
-              <span class="inline-flex items-center gap-1 text-xs font-medium text-slate-600">
-                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-blue"></i> Fondator
-              </span>
-            </div>
-          </div>
-
-          <!-- Lider 2: Adrian-Ștefan Simionescu -->
-          <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200/90 text-center hover:shadow-lg transition-all duration-200">
-            <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-brand-emerald to-emerald-400 text-white font-bold text-2xl flex items-center justify-center mx-auto mb-5 shadow-md">
-              AS
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 leading-snug">Adrian-Ștefan Simionescu</h3>
-            <p class="text-sm font-bold text-brand-emeraldDark uppercase tracking-wider mt-1 mb-3">Vicepreședinte</p>
-            <p class="text-xs text-slate-500 leading-relaxed mb-4">
-              Supervizează dezvoltarea programelor de formare, parteneriatele Erasmus+ și activitățile dedicate tinerilor și incluziunii sociale.
-            </p>
-            <div class="pt-3 border-t border-slate-200/70 flex justify-center gap-3 text-slate-400">
-              <span class="inline-flex items-center gap-1 text-xs font-medium text-slate-600">
-                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-brand-emerald"></i> Proiecte &amp; Formare
-              </span>
-            </div>
-          </div>
-
-          <!-- Lider 3: David-George Stroe -->
-          <div class="bg-slate-50 rounded-2xl p-8 border border-slate-200/90 text-center hover:shadow-lg transition-all duration-200">
-            <div class="w-24 h-24 rounded-full bg-gradient-to-tr from-slate-700 to-slate-900 text-white font-bold text-2xl flex items-center justify-center mx-auto mb-5 shadow-md">
-              DS
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 leading-snug">David-George Stroe</h3>
-            <p class="text-sm font-bold text-slate-700 uppercase tracking-wider mt-1 mb-3">Secretar General</p>
-            <p class="text-xs text-slate-500 leading-relaxed mb-4">
-              Asigură guvernanța administrativă, conformitatea legală, evidența membrilor și comunicarea internă eficientă a asociației.
-            </p>
-            <div class="pt-3 border-t border-slate-200/70 flex justify-center gap-3 text-slate-400">
-              <span class="inline-flex items-center gap-1 text-xs font-medium text-slate-600">
-                <i data-lucide="check-circle" class="w-3.5 h-3.5 text-slate-700"></i> Administrație &amp; Legal
-              </span>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <!-- 5. SECȚIUNEA „IMPLICĂ-TE & DONAȚII” -->
-    <section id="implica-te" class="py-20 bg-slate-50 border-t border-slate-200">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="text-center max-w-2xl mx-auto mb-16">
-          <span class="text-xs font-bold text-brand-emerald uppercase tracking-widest bg-emerald-50 px-3 py-1 rounded-full">Comunitate &amp; Solidaritate</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Cum te poți implica</h2>
-          <p class="text-slate-600 mt-3 text-base">
-            Fiecare acțiune contează. Descoperă modalitățile prin care poți contribui la îndeplinirea misiunii C.R.E.D.
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-left">
+<div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs"><div class="text-2xl font-bold text-blue-900">5</div><div class="text-xs text-slate-600" data-i18n="stat_p_active">Proiecte Active</div></div>
+<div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs"><div class="text-2xl font-bold text-emerald-600">500+</div><div class="text-xs text-slate-600" data-i18n="stat_p_beneficiaries">Tineri Beneficiari</div></div>
+<div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs"><div class="text-2xl font-bold text-blue-900">6</div><div class="text-xs text-slate-600" data-i18n="stat_p_partners">Parteneri EU &amp; RO</div></div>
+<div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs"><div class="text-2xl font-bold text-emerald-600">100%</div><div class="text-xs text-slate-600" data-i18n="stat_p_civic">Implicare Non-profit</div></div>
+</div>
+</div>
+</section>
+<!-- Grid Proiecte & Filtre -->
+<section class="py-14 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Filtre -->
+<div class="flex items-center justify-center flex-wrap gap-2 mb-10">
+<button class="filter-btn filter-active px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold border border-slate-200 transition cursor-pointer" data-i18n="filter_all" onclick="filterProjects('all', this)">Toate</button>
+<button class="filter-btn bg-slate-100 text-slate-700 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold border border-slate-200 transition cursor-pointer" data-i18n="filter_edu" onclick="filterProjects('democratie', this)">Educație &amp; Democrație</button>
+<button class="filter-btn bg-slate-100 text-slate-700 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold border border-slate-200 transition cursor-pointer" data-i18n="filter_erasmus" onclick="filterProjects('erasmus', this)">Erasmus+ &amp; Tineret</button>
+<button class="filter-btn bg-slate-100 text-slate-700 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold border border-slate-200 transition cursor-pointer" data-i18n="filter_media" onclick="filterProjects('media', this)">Media &amp; Digital</button>
+<button class="filter-btn bg-slate-100 text-slate-700 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold border border-slate-200 transition cursor-pointer" data-i18n="filter_eco" onclick="filterProjects('mediu', this)">Ecologie</button>
+<button class="filter-btn bg-slate-100 text-slate-700 px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold border border-slate-200 transition cursor-pointer" data-i18n="filter_inc" onclick="filterProjects('incluziune', this)">Incluziune</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- P1 -->
+<article class="project-card bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between hover:shadow-lg transition" data-category="democratie">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-blue-800 bg-blue-100 px-2.5 py-0.5 rounded-full inline-block mb-3" data-i18n="p1_cat">Educație Civică</span>
+<h3 class="text-xl font-bold text-slate-900 mb-2" data-i18n="p1_title">Laboratorul de Democrație pentru Liceeni</h3>
+<p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4" data-i18n="p1_desc">Ateliere interactive și simulări de dezbateri parlamentare în licee privind statul de drept, separarea puterilor și gândirea critică.</p>
+</div>
+<div class="pt-4 border-t border-slate-200 flex justify-between items-center text-xs">
+<span class="font-semibold text-emerald-700" data-i18n="status_active">Activ 2026</span>
+<button class="font-bold text-blue-900 hover:text-blue-700 cursor-pointer" data-i18n="btn_join_proj" onclick="navigateToPage('home'); scrollToSection('contact')">Participă →</button>
+</div>
+</article>
+<!-- P2 -->
+<article class="project-card bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between hover:shadow-lg transition" data-category="erasmus">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full inline-block mb-3" data-i18n="p2_cat">Erasmus+ &amp; Mobilitate</span>
+<h3 class="text-xl font-bold text-slate-900 mb-2" data-i18n="p2_title">Erasmus+ Youth Dialogue &amp; Mobility</h3>
+<p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4" data-i18n="p2_desc">Consorțiu european în parteneriat cu organizații de tineret din Germania, Franța și Polonia axat pe dialog intercultural și mobilități educaționale.</p>
+</div>
+<div class="pt-4 border-t border-slate-200 flex justify-between items-center text-xs">
+<span class="font-semibold text-emerald-700" data-i18n="status_active">Activ 2026</span>
+<button class="font-bold text-blue-900 hover:text-blue-700 cursor-pointer" data-i18n="btn_join_proj" onclick="navigateToPage('home'); scrollToSection('contact')">Participă →</button>
+</div>
+</article>
+<!-- P3 -->
+<article class="project-card bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between hover:shadow-lg transition" data-category="media">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-blue-800 bg-blue-100 px-2.5 py-0.5 rounded-full inline-block mb-3" data-i18n="p3_cat">Media Literacy</span>
+<h3 class="text-xl font-bold text-slate-900 mb-2" data-i18n="p3_title">Ghidul Tânărului Informat &amp; Anti-Fake News</h3>
+<p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4" data-i18n="p3_desc">Ghiduri digitale și sesiuni practice de fact-checking pentru tineri pentru demontarea dezinformării și detectarea conținutului generat cu AI.</p>
+</div>
+<div class="pt-4 border-t border-slate-200 flex justify-between items-center text-xs">
+<span class="font-semibold text-blue-800" data-i18n="status_pilot">Ediție Pilot</span>
+<button class="font-bold text-blue-900 hover:text-blue-700 cursor-pointer" data-i18n="btn_join_proj" onclick="navigateToPage('home'); scrollToSection('contact')">Participă →</button>
+</div>
+</article>
+<!-- P4 -->
+<article class="project-card bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between hover:shadow-lg transition" data-category="mediu">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full inline-block mb-3" data-i18n="p4_cat">Mediu</span>
+<h3 class="text-xl font-bold text-slate-900 mb-2" data-i18n="p4_title">Comunități Verzi &amp; Economie Circulară</h3>
+<p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4" data-i18n="p4_desc">Inițiativă civică de conștientizare ecologică urbană, colectare responsabilă și reducerea risipei prin ateliere comunitare.</p>
+</div>
+<div class="pt-4 border-t border-slate-200 flex justify-between items-center text-xs">
+<span class="font-semibold text-amber-700" data-i18n="status_planned">În Pregătire</span>
+<button class="font-bold text-blue-900 hover:text-blue-700 cursor-pointer" data-i18n="btn_join_proj" onclick="navigateToPage('home'); scrollToSection('contact')">Participă →</button>
+</div>
+</article>
+<!-- P5 -->
+<article class="project-card bg-slate-50 border border-slate-200 rounded-2xl p-6 flex flex-col justify-between hover:shadow-lg transition" data-category="incluziune">
+<div>
+<span class="text-xs font-bold uppercase tracking-wider text-blue-800 bg-blue-100 px-2.5 py-0.5 rounded-full inline-block mb-3" data-i18n="p5_cat">Incluziune</span>
+<h3 class="text-xl font-bold text-slate-900 mb-2" data-i18n="p5_title">Caravana Egalității de Șanse</h3>
+<p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4" data-i18n="p5_desc">Consiliere civică și educațională pentru tinerii din mediul rural sau grupuri vulnerabile, oferind mentorat și burse de dezvoltare.</p>
+</div>
+<div class="pt-4 border-t border-slate-200 flex justify-between items-center text-xs">
+<span class="font-semibold text-emerald-700" data-i18n="status_active">Activ 2026</span>
+<button class="font-bold text-blue-900 hover:text-blue-700 cursor-pointer" data-i18n="btn_join_proj" onclick="navigateToPage('home'); scrollToSection('contact')">Participă →</button>
+</div>
+</article>
+</div>
+</div>
+</section>
+</div>
+<!-- 3. ECHIPA -->
+<div class="page-view" id="page-echipa" style="display: none;">
+<!-- Hero Echipa -->
+<section class="bg-gradient-to-b from-blue-50/70 via-white to-slate-50 py-16 border-b border-slate-200 text-center">
+<div class="max-w-4xl mx-auto px-4 sm:px-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-100 text-blue-900 border border-blue-200 mb-4">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span data-i18n="team_hero_badge">ECHIPĂ &amp; GUVERNANȚĂ STATUTARĂ</span>
+</div>
+<h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-4">
+<span data-i18n="team_t1">Oamenii din spatele</span>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-800 to-blue-600" data-i18n="team_t2">viziunii noastre</span>
+</h1>
+<p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto" data-i18n="team_sub">
+            O echipă dedicată de tineri profesioniști uniți de misiunea comună de a consolida democrația participativă și transparența publică.
           </p>
-        </div>
-
-        <!-- 3 Opțiuni de implicare -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-          
-          <div class="bg-white p-7 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
-            <div>
-              <div class="w-12 h-12 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center mb-4">
-                <i data-lucide="sparkles" class="w-6 h-6"></i>
-              </div>
-              <h3 class="text-lg font-bold text-slate-900 mb-2">1. Fii Voluntar</h3>
-              <p class="text-sm text-slate-600 leading-relaxed">
-                Alătură-te echipei noastre operative, organizează evenimente, contribuie la campanii de conștientizare civică și dobândește experiență practică.
-              </p>
-            </div>
-            <a href="#formular-voluntar" class="mt-6 inline-flex items-center gap-1.5 text-xs font-bold text-brand-blue hover:text-brand-blueDark">
-              Completează formularul <i data-lucide="chevron-right" class="w-4 h-4"></i>
-            </a>
-          </div>
-
-          <div class="bg-white p-7 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
-            <div>
-              <div class="w-12 h-12 rounded-xl bg-emerald-50 text-brand-emerald flex items-center justify-center mb-4">
-                <i data-lucide="file-text" class="w-6 h-6"></i>
-              </div>
-              <h3 class="text-lg font-bold text-slate-900 mb-2">2. Redirecționează 3.5%</h3>
-              <p class="text-sm text-slate-600 leading-relaxed">
-                Direcționează gratuit până la 3.5% din impozitul pe venit către C.R.E.D. Un gest simplu prin Formularul 230 fără niciun cost suplimentar pentru tine.
-              </p>
-            </div>
-            <div class="mt-6">
-              <span class="text-xs bg-emerald-50 text-brand-emeraldDark px-2.5 py-1 rounded font-semibold">Formularul 230</span>
-            </div>
-          </div>
-
-          <div id="doneaza" class="bg-white p-7 rounded-2xl border-2 border-brand-emerald shadow-sm flex flex-col justify-between relative overflow-hidden">
-            <div class="absolute top-0 right-0 bg-brand-emerald text-white text-[10px] font-extrabold uppercase px-3 py-1 rounded-bl-lg">
-              Sprijin direct
-            </div>
-            <div>
-              <div class="w-12 h-12 rounded-xl bg-emerald-100/60 text-brand-emerald flex items-center justify-center mb-4">
-                <i data-lucide="gift" class="w-6 h-6"></i>
-              </div>
-              <h3 class="text-lg font-bold text-slate-900 mb-2">3. Donații &amp; Sponsorizări</h3>
-              <p class="text-sm text-slate-600 leading-relaxed">
-                Persoanele fizice și companiile pot susține direct proiectele noastre dedicate tinerilor dezavantajați și educației civice.
-              </p>
-            </div>
-            <div class="mt-6">
-              <button onclick="alert('Vă mulțumim pentru interes! Detaliile bancare IBAN și contractul de sponsorizare vă vor fi trimise prin email.')" class="w-full py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-brand-emerald hover:bg-brand-emeraldDark transition-colors">
-                Solicită Date IBAN Donație
-              </button>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Formular de Contact și Înscriere Voluntar -->
-        <div id="formular-voluntar" class="max-w-3xl mx-auto bg-white rounded-3xl p-8 sm:p-10 border border-slate-200 shadow-xl">
-          <div class="text-center mb-8">
-            <h3 class="text-2xl font-bold text-slate-900">Formular de Contact &amp; Înscriere Voluntari</h3>
-            <p class="text-sm text-slate-500 mt-1">Completează datele tale și te vom contacta în maximum 48 de ore.</p>
-          </div>
-
-          <form id="contactForm" class="space-y-6">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <!-- Nume -->
-              <div>
-                <label for="nume" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Nume și Prenume *</label>
-                <div class="relative">
-                  <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-                    <i data-lucide="user" class="w-4 h-4"></i>
-                  </div>
-                  <input type="text" id="nume" required placeholder="Ex: Andrei Popescu" class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-all">
-                </div>
-              </div>
-
-              <!-- Email -->
-              <div>
-                <label for="email" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Adresă de Email *</label>
-                <div class="relative">
-                  <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-                    <i data-lucide="mail" class="w-4 h-4"></i>
-                  </div>
-                  <input type="email" id="email" required placeholder="exemplu@email.ro" class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-all">
-                </div>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <!-- Telefon -->
-              <div>
-                <label for="telefon" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Telefon *</label>
-                <div class="relative">
-                  <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-                    <i data-lucide="phone" class="w-4 h-4"></i>
-                  </div>
-                  <input type="tel" id="telefon" required placeholder="07xxxxxxxx" class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-all">
-                </div>
-              </div>
-
-              <!-- Domeniu de interes -->
-              <div>
-                <label for="domeniu" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Domeniu de Interes *</label>
-                <div class="relative">
-                  <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-                    <i data-lucide="briefcase" class="w-4 h-4"></i>
-                  </div>
-                  <select id="domeniu" required class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-all">
-                    <option value="" disabled selected>Alege un domeniu</option>
-                    <option value="voluntariat-educatie">Educație &amp; Erasmus+</option>
-                    <option value="democratie-civism">Democrație &amp; Participare Civică</option>
-                    <option value="incluziune-neets">Incluziune Socială &amp; Tineri NEETs</option>
-                    <option value="digitalizare">Digitalizare &amp; Educație Media</option>
-                    <option value="mediu-sustenabilitate">Mediu &amp; Sustenabilitate</option>
-                    <option value="antreprenoriat">Antreprenoriat Social</option>
-                    <option value="donatie-parteneriat">Parteneriat Instituțional / Sponsorizare</option>
-                    <option value="altul">Alt mesaj de contact</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <!-- Mesaj -->
-            <div>
-              <label for="mesaj" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Mesajul tău sau motivația</label>
-              <textarea id="mesaj" rows="4" placeholder="Scrie-ne câteva cuvinte despre tine sau solicitarea ta..." class="w-full p-4 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-all"></textarea>
-            </div>
-
-            <!-- Acord GDPR -->
-            <div class="flex items-start gap-3">
-              <input type="checkbox" id="gdpr" required class="mt-1 h-4 w-4 rounded border-slate-300 text-brand-blue focus:ring-brand-blue">
-              <label for="gdpr" class="text-xs text-slate-600 leading-normal">
-                Sunt de acord cu prelucrarea datelor cu caracter personal în scopul comunicării oficiale cu Asociația C.R.E.D., conform Regulamentului (UE) 2016/679 (GDPR). *
-              </label>
-            </div>
-
-            <!-- Buton Trimitere -->
-            <button type="submit" class="w-full py-4 px-6 rounded-xl font-bold text-white bg-brand-blue hover:bg-brand-blueDark shadow-lg shadow-blue-500/20 transition-all duration-150 transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
-              <i data-lucide="send" class="w-4 h-4"></i>
-              Trimite Formularul
-            </button>
-
-            <!-- Feedback trimitere -->
-            <div id="formSuccess" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-brand-emeraldDark text-sm text-center font-medium">
-              Vă mulțumim! Mesajul dumneavoastră a fost înregistrat cu succes. Un reprezentant C.R.E.D. vă va contacta în curând.
-            </div>
-          </form>
-        </div>
-
-      </div>
-    </section>
-  </main>
-
-  <!-- 6. FOOTER (DATE OFICIALE DE CONTACT) -->
-  <footer id="contact" class="bg-brand-navy text-slate-300 pt-16 pb-12 border-t border-slate-800">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-        
-        <!-- Coloana 1: Identitate C.R.E.D. -->
-        <div class="space-y-4">
-          <div class="flex items-center gap-3">
-            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQ-AEmABbFj9Hc5AUdNiyNBD5SyosoJzpcFx7Vy7XCmhlHgG8QK6-31cwJTi6pJjMBQYEtjUmWEDZY9ipxrLYlJZJd1k_lHnD0p44Ue9bNvwSfZqedAm2p-6iy7ArWB3YqKxbG1zo3cmXowDvff4e6YkknaWnVsQ8bcD_TZUuhsoiYXBqrf7bPi4hFstn2DdACNgMvFWxrSugPbcJ71BCXMXDUWoNspywE-m8YQVDtkKYQEqN8tOIYCE2fiD-EGP715I4" alt="Sigla C.R.E.D." class="h-10 w-auto bg-white p-1 rounded-md">
-            <div>
-              <p class="font-extrabold text-white text-lg tracking-wide">C.R.E.D.</p>
-              <p class="text-[11px] text-slate-400">Centrul pentru Reformă, Echitate și Democrație</p>
-            </div>
-          </div>
-          <p class="text-xs text-slate-400 leading-relaxed">
-            Sprijinirea dezvoltării durabile a societății românești și integrarea în spațiul valoric european prin democrație participativă, echitate și educație continuă.
+</div>
+</section>
+<!-- Cei 3 Membri Fondatori ai Consiliului -->
+<section class="py-16 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-12">
+<span class="text-xs font-bold uppercase tracking-wider text-blue-800 bg-blue-50 px-3 py-1 rounded" data-i18n="board_tag">Organ Executiv Statutar</span>
+<h2 class="text-3xl font-extrabold text-slate-900 mt-2" data-i18n="board_title">Consiliul Director</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- 1. Mihai Pârlici -->
+<article class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:shadow-lg transition flex flex-col justify-between text-center">
+<div>
+<img alt="Mihai-Cosmin Pârlici-Nicolaescu" class="w-36 h-36 rounded-full object-cover object-top mx-auto mb-4 border-4 border-white shadow ring-2 ring-blue-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXMEkkECB2ogKrS4B1JasGTNzj1RcSLqiRIlHVAaqxP2MOGZEnOCBt46YYORs62pxx0kEoJRq9vpAj_4I62cm92saxQ8FGS7iZI2tVM3lGFlSN1Ol3wx8FxyEPAzvUdaySVf-TuhCJaeKnT4qIsn0_9WTBEmLba0FQFRKUr3r7VIj9QcQr8uw9zNwXFAIJczLO2JsezP8K4_Tu7BgqHfzBqNw4UHefEGYYNhS17ldirBZcdOnkA8yYhBwT6WK7dx_KXlM"/>
+<h3 class="text-xl font-bold text-slate-900">Mihai-Cosmin Pârlici-Nicolaescu</h3>
+<p class="text-xs font-bold uppercase tracking-wider text-blue-800 mt-1" data-i18n="role_pres">Președinte &amp; Fondator</p>
+<div class="flex justify-center gap-1.5 mt-2">
+<span class="text-[11px] font-semibold bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full" data-i18n="tag_exec">Executiv</span>
+<span class="text-[11px] font-semibold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full" data-i18n="tag_strat">Strategie &amp; Legal</span>
+</div>
+<p class="text-xs sm:text-sm text-slate-600 mt-4 leading-relaxed text-left" data-i18n="bio_mihai">
+                  Coordonarea viziunii strategice, reprezentare legală și relații instituționale, dezvoltarea parteneriatelor europene și supravegherea conformității statutare.
+                </p>
+</div>
+<div class="mt-6 pt-4 border-t border-slate-200">
+<a class="text-xs font-semibold text-blue-900 hover:text-blue-700 flex items-center justify-center gap-1" href="mailto:mihai@ongcred.ro">
+                  ✉️ mihai@ongcred.ro
+                </a>
+</div>
+</article>
+<!-- 2. Adrian-Ștefan Simionescu -->
+<article class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:shadow-lg transition flex flex-col justify-between text-center">
+<div>
+<img alt="Adrian-Ștefan Simionescu" class="w-36 h-36 rounded-full object-cover mx-auto mb-4 border-4 border-white shadow ring-2 ring-blue-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoD96BR2XjKTiBuoB2pfniEEQasfdCdKByQp3bWlkdNEJzKJbNi45xBorn7SAhak7bE15EWQD88jUpA_Ncens76gnm-Y6pWmOdt5I16Mf1-7YssqANNkehesny4t_5ntF9WxzSaJTl2CdOpLbWQ6DDWmO6yLDKwva4g5tD4ZJ8AluQGtYVOQSS9x8ExWfL2PutrMztor43860HYutOziPqo1cGNsFLDdZAEamKBn8c0oHAKtKOAcRg2DcIIBnmKuZn_jk"/>
+<h3 class="text-xl font-bold text-slate-900">Adrian-Ștefan Simionescu</h3>
+<p class="text-xs font-bold uppercase tracking-wider text-blue-800 mt-1" data-i18n="role_vice">Vicepreședinte</p>
+<div class="flex justify-center gap-1.5 mt-2">
+<span class="text-[11px] font-semibold bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full" data-i18n="tag_erasmus">Erasmus+</span>
+<span class="text-[11px] font-semibold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full" data-i18n="tag_youth">Politici Tineret</span>
+</div>
+<p class="text-xs sm:text-sm text-slate-600 mt-4 leading-relaxed text-left" data-i18n="bio_stefan">
+                  Supervizarea programelor operaționale dedicate tineretului, coordonarea proiectelor europene (Erasmus+), educație non-formală și facilitare de inițiative civice.
+                </p>
+</div>
+<div class="mt-6 pt-4 border-t border-slate-200">
+<a class="text-xs font-semibold text-blue-900 hover:text-blue-700 flex items-center justify-center gap-1" href="mailto:stefan@ongcred.ro">
+                  ✉️ stefan@ongcred.ro
+                </a>
+</div>
+</article>
+<!-- 3. David-George Stroe -->
+<article class="bg-slate-50 rounded-2xl p-6 border border-slate-200 hover:shadow-lg transition flex flex-col justify-between text-center">
+<div>
+<img alt="David-George Stroe" class="w-36 h-36 rounded-full object-cover object-top mx-auto mb-4 border-4 border-white shadow ring-2 ring-blue-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKV9satDGi0kVboxmb4DbcCiF8P8o52C-yhPVcDyW2Zw3AeSdrOcKNwNGu83lcwFrXDz4GWpmWRyW1bYl8DIaoUTn2I1CxvtHwm7UETEGWsb5vFW-s8SevPnIkL9pKFD3Jovr9uFwr96Gak6M5UjoyPaWxcDokAHwLCuFxl8LQ8AnfpchNR0V37qCLkgyYIkuoj0pNaZtUJrybh5CIQYdelTXfSSOGF6K2Do0wCFiT-BH65M8vaLvLLgbB4UVaLtS7C-4"/>
+<h3 class="text-xl font-bold text-slate-900">David-George Stroe</h3>
+<p class="text-xs font-bold uppercase tracking-wider text-blue-800 mt-1" data-i18n="role_sec">Secretar General</p>
+<div class="flex justify-center gap-1.5 mt-2">
+<span class="text-[11px] font-semibold bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full" data-i18n="tag_gov">Guvernanță</span>
+<span class="text-[11px] font-semibold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full" data-i18n="tag_admin">Administrație</span>
+</div>
+<p class="text-xs sm:text-sm text-slate-600 mt-4 leading-relaxed text-left" data-i18n="bio_david">
+                  Asigurarea bunei funcționări administrative, gestiunea registrului de membri și voluntari, conformitatea statutară și comunicarea internă.
+                </p>
+</div>
+<div class="mt-6 pt-4 border-t border-slate-200">
+<a class="text-xs font-semibold text-blue-900 hover:text-blue-700 flex items-center justify-center gap-1" href="mailto:david@ongcred.ro">
+                  ✉️ david@ongcred.ro
+                </a>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- Departamente Operaționale -->
+<section class="py-14 bg-slate-50 border-t border-slate-200" id="departamente">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-2xl mx-auto mb-10">
+<span class="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded" data-i18n="dept_tag">Structură Executivă</span>
+<h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2" data-i18n="dept_title">Departamente Operaționale</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+<div class="bg-white p-5 rounded-xl border border-slate-200"><h4 class="font-bold text-slate-900 text-base mb-1" data-i18n="dep_1_t">Educație &amp; Tineret</h4><p class="text-xs text-slate-600 leading-relaxed" data-i18n="dep_1_d">Ateliere civice, competiții de debate și mentorat pentru tineri.</p></div>
+<div class="bg-white p-5 rounded-xl border border-slate-200"><h4 class="font-bold text-slate-900 text-base mb-1" data-i18n="dep_2_t">Politici Publice &amp; Democrație</h4><p class="text-xs text-slate-600 leading-relaxed" data-i18n="dep_2_d">Monitorizarea deciziilor publice și rapoarte de transparență.</p></div>
+<div class="bg-white p-5 rounded-xl border border-slate-200"><h4 class="font-bold text-slate-900 text-base mb-1" data-i18n="dep_3_t">Incluziune Socială &amp; Drepturi</h4><p class="text-xs text-slate-600 leading-relaxed" data-i18n="dep_3_d">Sprijin pentru tinerii din medii vulnerabile și acces echitabil.</p></div>
+<div class="bg-white p-5 rounded-xl border border-slate-200"><h4 class="font-bold text-slate-900 text-base mb-1" data-i18n="dep_4_t">Digitalizare &amp; Media</h4><p class="text-xs text-slate-600 leading-relaxed" data-i18n="dep_4_d">Campanii anti-fake news, educație cibernetică și tehnologii etice.</p></div>
+<div class="bg-white p-5 rounded-xl border border-slate-200"><h4 class="font-bold text-slate-900 text-base mb-1" data-i18n="dep_5_t">Mediu &amp; Sustenabilitate</h4><p class="text-xs text-slate-600 leading-relaxed" data-i18n="dep_5_d">Campanii ecologice și economie circulară în comunități locale.</p></div>
+<div class="bg-white p-5 rounded-xl border border-slate-200"><h4 class="font-bold text-slate-900 text-base mb-1" data-i18n="dep_6_t">Comunicare &amp; PR</h4><p class="text-xs text-slate-600 leading-relaxed" data-i18n="dep_6_d">Branding civic, relații cu presa și organizarea evenimentelor.</p></div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="bg-slate-900 text-slate-300 pt-14 pb-10 border-t border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10 text-xs sm:text-sm">
+<div class="space-y-3">
+<div class="flex items-center space-x-2 cursor-pointer" onclick="navigateToPage('home')">
+<img alt="C.R.E.D." class="w-8 h-8 rounded bg-white p-0.5 object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnXEpX5CN2kO9cijJ5YxBxeB_TJBdGdvM0eJok6qHV7l6Qhn1IuwAL5xE42N-irbycpAvpnMFNuPmbGQ3pTZc5mU_3Cui0MavSOslDc2DMzsCZEv0xpRYn-fHNHvweAI3_ByvpSJciOUgJRCjWXcH_oyatiWjMSdiun0G_LzQycso3lD6sRaNW_qIzitbrr5MyTmD8s4R_AdjbKtttTN3Uhg7ls16n-cKFh5UHkCI33xEy2ZMa3UdVOmixx3Rbib4SwPo"/>
+<span class="text-lg font-bold text-white">C.R.E.D.</span>
+</div>
+<p class="text-slate-400 text-xs leading-relaxed" data-i18n="footer_desc">
+            Asociația „Centrul pentru Reformă, Echitate și Democrație” este o organizație apolitică, non-guvernamentală și non-profit.
           </p>
-          <div class="flex items-center gap-3 pt-2">
-            <a href="#" aria-label="Facebook C.R.E.D." class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-brand-blue flex items-center justify-center text-slate-300 hover:text-white transition-colors">
-              <i data-lucide="facebook" class="w-4 h-4"></i>
-            </a>
-            <a href="#" aria-label="Instagram C.R.E.D." class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-pink-600 flex items-center justify-center text-slate-300 hover:text-white transition-colors">
-              <i data-lucide="instagram" class="w-4 h-4"></i>
-            </a>
-            <a href="#" aria-label="LinkedIn C.R.E.D." class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-blue-600 flex items-center justify-center text-slate-300 hover:text-white transition-colors">
-              <i data-lucide="linkedin" class="w-4 h-4"></i>
-            </a>
-            <a href="#" aria-label="Email C.R.E.D." class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-brand-emerald flex items-center justify-center text-slate-300 hover:text-white transition-colors">
-              <i data-lucide="mail" class="w-4 h-4"></i>
-            </a>
-          </div>
-        </div>
+<div class="pt-1 text-slate-400 text-xs">
+<p><strong class="text-slate-200">Dovadă MJ:</strong> Nr. 229231</p>
+<p><strong class="text-slate-200">Statut:</strong> ONG Înregistrat Statutar</p>
+</div>
+</div>
+<div>
+<h4 class="text-white font-semibold mb-3 uppercase tracking-wider text-xs" data-i18n="footer_links">Navigație Rapidă</h4>
+<ul class="space-y-2 text-xs">
+<li><button class="hover:text-white cursor-pointer" data-i18n="nav_home" onclick="navigateToPage('home')">Acasă</button></li>
+<li><button class="hover:text-white cursor-pointer" data-i18n="nav_projects" onclick="navigateToPage('proiecte')">Proiecte</button></li>
+<li><button class="hover:text-white cursor-pointer" data-i18n="nav_team" onclick="navigateToPage('echipa')">Consiliul Director &amp; Echipa</button></li>
+<li><button class="hover:text-white cursor-pointer" data-i18n="nav_get_involved" onclick="navigateToPage('home'); scrollToSection('implicate')">Implică-te</button></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-semibold mb-3 uppercase tracking-wider text-xs" data-i18n="footer_gov">Guvernanță &amp; Integritate</h4>
+<ul class="space-y-2 text-xs">
+<li><a class="hover:text-white" data-i18n="gov_1" href="#">Statutul Asociației C.R.E.D.</a></li>
+<li><a class="hover:text-white" data-i18n="gov_2" href="#">Raport Financiar &amp; Activitate</a></li>
+<li><a class="hover:text-white" data-i18n="gov_3" href="#">Cod de Conduită &amp; Etică</a></li>
+<li><a class="hover:text-white" data-i18n="gov_4" href="#">Confidențialitate &amp; GDPR</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-semibold mb-3 uppercase tracking-wider text-xs" data-i18n="footer_contact">Contact Oficial</h4>
+<div class="space-y-2 text-xs text-slate-300">
+<p>📍 București, Sector 3, România</p>
+<p>📞 <a class="hover:text-white" href="tel:0772142186">0772 142 186</a></p>
+<p>✉️ <a class="hover:text-white" href="mailto:contact@ongcred.ro">contact@ongcred.ro</a></p>
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-slate-800 text-xs text-slate-500 flex flex-col sm:flex-row justify-between items-center gap-2">
+<p>© 2026 Asociația „Centrul pentru Reformă, Echitate și Democrație” (C.R.E.D.).</p>
+<p class="text-slate-400" data-i18n="footer_tagline">Construim comunități democratice și transparente.</p>
+</div>
+</div>
+</footer>
+<!-- JS: SPA NAVIGATION + COMPLETE BILINGUAL DICTIONARY -->
+<script>
+    function navigateToPage(page) {
+      const home = document.getElementById('page-home');
+      const proiecte = document.getElementById('page-proiecte');
+      const echipa = document.getElementById('page-echipa');
 
-        <!-- Coloana 2: Date Juridice & Statutare Oficiale -->
-        <div class="space-y-3">
-          <h4 class="text-sm font-bold text-white uppercase tracking-wider">Date Oficiale</h4>
-          <div class="space-y-2.5 text-xs text-slate-400">
-            <p class="text-slate-300 font-semibold">Asociația Centrul pentru Reformă, Echitate și Democrație</p>
-            <p><span class="text-slate-200 font-medium">Acronim:</span> C.R.E.D.</p>
-            <p><span class="text-slate-200 font-medium">Dovadă disponibilitate denumire MJ:</span> <span class="bg-slate-800 px-2 py-0.5 rounded text-white font-mono">nr. 229231</span></p>
-            <p><span class="text-slate-200 font-medium">Statut:</span> Organizație neguvernamentală, apolitică și non-profit</p>
-          </div>
-        </div>
+      const navHome = document.getElementById('nav-link-home');
+      const navProiecte = document.getElementById('nav-link-proiecte');
+      const navEchipa = document.getElementById('nav-link-echipa');
 
-        <!-- Coloana 3: Sediul Social & Contact -->
-        <div class="space-y-3">
-          <h4 class="text-sm font-bold text-white uppercase tracking-wider">Sediul Social</h4>
-          <div class="space-y-3 text-xs text-slate-400">
-            <div class="flex items-start gap-2.5">
-              <i data-lucide="map-pin" class="w-4 h-4 text-brand-emerald shrink-0 mt-0.5"></i>
-              <span>Mun. București, Sector 3, Str. Doicești, nr. 6, România</span>
-            </div>
-            <div class="flex items-center gap-2.5">
-              <i data-lucide="mail" class="w-4 h-4 text-brand-blue shrink-0"></i>
-              <span>contact@ongcred.ro</span>
-            </div>
-            <div class="flex items-center gap-2.5">
-              <i data-lucide="clock" class="w-4 h-4 text-slate-500 shrink-0"></i>
-              <span>Luni – Vineri: 09:00 – 17:00</span>
-            </div>
-          </div>
-        </div>
+      if (home) home.style.display = 'none';
+      if (proiecte) proiecte.style.display = 'none';
+      if (echipa) echipa.style.display = 'none';
 
-        <!-- Coloana 4: Navigare Rapidă & Legal -->
-        <div class="space-y-3">
-          <h4 class="text-sm font-bold text-white uppercase tracking-wider">Informații &amp; Transparență</h4>
-          <ul class="space-y-2 text-xs text-slate-400">
-            <li><a href="#despre" class="hover:text-white transition-colors">Viziune și Obiective Statutare</a></li>
-            <li><a href="#piloni" class="hover:text-white transition-colors">Cei 6 Piloni de Activitate</a></li>
-            <li><a href="#echipa" class="hover:text-white transition-colors">Consiliul Director</a></li>
-            <li><a href="#implica-te" class="hover:text-white transition-colors">Voluntariat &amp; Sprijin 3.5%</a></li>
-            <li><a href="#" onclick="alert('Statutul oficial C.R.E.D. este disponibil pentru consultare la cerere membrilor și partenerilor.')" class="hover:text-white transition-colors">Statutul Asociației C.R.E.D.</a></li>
-            <li><a href="#" onclick="alert('Politica GDPR: Asociația respectă confidențialitatea datelor dumneavoastră conform legislației UE în vigoare.')" class="hover:text-white transition-colors text-brand-emerald">Politica de Confidențialitate GDPR</a></li>
-          </ul>
-        </div>
-
-      </div>
-
-      <!-- Copyright & Nota de final -->
-      <div class="pt-8 border-t border-slate-800 text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p>© 2026 Asociația „Centrul pentru Reformă, Echitate și Democrație” (C.R.E.D.). Toate drepturile rezervate.</p>
-        <p class="flex items-center gap-2">
-          <span>Construit pentru o societate deschisă și solidară</span>
-          <span class="inline-block w-1.5 h-1.5 rounded-full bg-brand-emerald"></span>
-        </p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Scripturi JavaScript Interactivitate de bază -->
-  <script>
-    // Inițializare iconițe Lucide
-    lucide.createIcons();
-
-    // Toggle Meniu Mobil
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-
-    // Închidere meniu mobil la click pe link
-    document.querySelectorAll('#mobileMenu a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
+      [navHome, navProiecte, navEchipa].forEach(btn => {
+        if (btn) {
+          btn.classList.remove('nav-active', 'text-blue-900', 'font-semibold');
+          btn.classList.add('text-slate-600', 'font-medium');
+        }
       });
-    });
 
-    // Formular Contact & Voluntar
-    const contactForm = document.getElementById('contactForm');
-    const formSuccess = document.getElementById('formSuccess');
+      if (page === 'proiecte') {
+        if (proiecte) proiecte.style.display = 'block';
+        if (navProiecte) {
+          navProiecte.classList.add('nav-active');
+          navProiecte.classList.remove('text-slate-600');
+        }
+      } else if (page === 'echipa') {
+        if (echipa) echipa.style.display = 'block';
+        if (navEchipa) {
+          navEchipa.classList.add('nav-active');
+          navEchipa.classList.remove('text-slate-600');
+        }
+      } else {
+        if (home) home.style.display = 'block';
+        if (navHome) {
+          navHome.classList.add('nav-active');
+          navHome.classList.remove('text-slate-600');
+        }
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
 
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      // Simulăm salvarea trimiterii
-      formSuccess.classList.remove('hidden');
-      contactForm.reset();
+    function scrollToSection(id) {
       setTimeout(() => {
-        formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }, 100);
-    });
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 50);
+    }
+
+    function filterProjects(cat, btn) {
+      document.querySelectorAll('.project-card').forEach(card => {
+        card.style.display = (cat === 'all' || card.getAttribute('data-category') === cat) ? 'flex' : 'none';
+      });
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('filter-active');
+        b.classList.add('bg-slate-100', 'text-slate-700');
+      });
+      if (btn) {
+        btn.classList.add('filter-active');
+        btn.classList.remove('bg-slate-100', 'text-slate-700');
+      }
+    }
+
+    const I18N = {
+      ro: {
+        nav_home: "Acasă",
+        nav_projects: "Proiecte",
+        nav_team: "Echipa",
+        nav_get_involved: "Implică-te",
+        nav_contact: "Contact",
+        btn_donate: "Donează / Susține",
+        home_hero_badge: "ORGANIZAȚIE PENTRU REFORME CIVICE",
+        hero_t1: "Pentru o societate",
+        hero_t2: "echitabilă, democratică",
+        hero_t3: "și orientată spre",
+        hero_t4: "viitor.",
+        hero_desc: "Asociația C.R.E.D. catalizează implicarea tinerilor, integritatea instituțională și soluțiile inovatoare pentru dezvoltarea comunităților durabile din România.",
+        btn_view_projects: "Descoperă Proiectele Noastre",
+        btn_view_team: "Cunoaște Echipa C.R.E.D. →",
+        stat_pillars: "Piloni Strategici",
+        stat_transparency: "Transparență & Răspundere",
+        stat_volunteers: "Voluntari & Colaboratori",
+        stat_board: "Membri Fondatori",
+        about_tag: "Identitate & Misiune",
+        about_title: "Despre Asociația C.R.E.D.",
+        about_text: "Asociația „Centrul pentru Reformă, Echitate și Democrație” (C.R.E.D.) s-a născut din determinarea unei generații tinere de a contribui activ și structurat la dezvoltarea României. Suntem o organizație neguvernamentală apolitică dedicată formării liderilor civici și echității sociale.",
+        about_f1: "Consolidarea dialogului constructiv între decidenții publici, mediul universitar și comunități.",
+        about_f2: "Dezvoltarea programelor de educație civică, gândire critică și combatere a dezinformării.",
+        about_f3: "Asigurarea egalității de șanse pentru tinerii proveniți din zone rurale și medii vulnerabile.",
+        about_card_sub: "Dovadă disponibilitate MJ: 229231",
+        about_quote: "„Democrația nu este doar un cadru constituțional, ci o practică zilnică de responsabilitate, curaj civic și solidaritate comunitară.”",
+        stat_apolitical: "Apolitic & Independent",
+        stat_impact: "Impact & Inițiative EU",
+        pillars_tag: "Direcții de Impact",
+        pillars_title: "Piloni Strategici de Activitate",
+        pillars_desc: "Intervențiile noastre civice se concentrează pe 6 direcții fundamentale pentru societatea contemporană.",
+        pil_1_title: "Educație & Formare",
+        pil_1_desc: "Ateliere de gândire critică, simulări civice și ateliere de formare non-formală pentru elevi și studenți.",
+        pil_2_title: "Democrație & Civism",
+        pil_2_desc: "Monitorizarea deciziilor publice, rapoarte de transparență decizională și stimularea participării la vot.",
+        pil_3_title: "Incluziune Socială",
+        pil_3_desc: "Sprijinirea tinerilor vulnerabili din mediul rural, reducerea inegalităților și promovarea integrării sociale.",
+        pil_4_title: "Digitalizare & Media Literacy",
+        pil_4_desc: "Combaterea dezinformării, securitate cibernetică și utilizare responsabilă a noilor tehnologii AI.",
+        pil_5_title: "Mediu & Sustenabilitate",
+        pil_5_desc: "Responsabilitate ecologică, economie circulară la nivel local și conservarea patrimoniului natural.",
+        pil_6_title: "Antreprenoriat Social",
+        pil_6_desc: "Mentorat pentru inițiative comunitare etice și conectare cu oportunități de finanțare europeană.",
+        involve_tag: "Participare Activă",
+        involve_title: "Cum te poți implica",
+        involve_desc: "Fiecare contribuție contează. Alege modalitatea potrivită pentru tine.",
+        inv_1_t: "Fii Voluntar",
+        inv_1_d: "Implică-te în organizarea atelierelor, redactarea rapoartelor de cercetare sau comunicare publică.",
+        inv_1_b: "Aplică ca Voluntar",
+        inv_2_t: "Redirecționează 3.5%",
+        inv_2_d: "Direcționează fără costuri suplimentare cota din impozitul pe venit către activitatea C.R.E.D.",
+        inv_2_b: "Solicită Formularul 230",
+        inv_3_t: "Parteneriate Instituționale",
+        inv_3_d: "Susține inițiativele pe termen lung prin colaborări universitare, CSR sau parteneriate civice.",
+        inv_3_b: "Contactează-ne",
+        contact_tag: "Conectare",
+        contact_title: "Contactează-ne sau Aplică",
+        contact_sub: "Trimite-ne un mesaj și echipa C.R.E.D. îți va răspunde în cel mai scurt timp.",
+        form_success: "Mesajul tău a fost trimis cu succes! Îți mulțumim.",
+        lbl_name: "Nume & Prenume *",
+        lbl_email: "Email *",
+        lbl_phone: "Telefon",
+        lbl_interest: "Domeniu de Interes",
+        lbl_msg: "Mesaj *",
+        ph_name: "ex. Ion Popescu",
+        ph_email: "ex. contact@exemplu.ro",
+        ph_phone: "0772 142 186",
+        ph_msg: "Cum vrei să colaborăm sau de ce vrei să te alături Asociației C.R.E.D.?",
+        opt_1: "Educație & Democrație",
+        opt_2: "Erasmus+ & Tineret",
+        opt_3: "Media Literacy & Digitalizare",
+        opt_4: "Mediu & Sustenabilitate",
+        opt_5: "Voluntariat General",
+        btn_send: "Trimite Mesajul",
+        proj_hero_badge: "IMPACT CIVIC ÎN ACȚIUNE",
+        proj_t1: "Proiecte și",
+        proj_t2: "Inițiative Civice",
+        proj_sub: "Transformăm principiile democratice, transparența și solidaritatea civică în acțiuni măsurabile pentru tineri și comunități.",
+        stat_p_active: "Proiecte Active",
+        stat_p_beneficiaries: "Tineri Beneficiari",
+        stat_p_partners: "Parteneri EU & RO",
+        stat_p_civic: "Implicare Non-profit",
+        filter_all: "Toate",
+        filter_edu: "Educație & Democrație",
+        filter_erasmus: "Erasmus+ & Tineret",
+        filter_media: "Media & Digital",
+        filter_eco: "Ecologie",
+        filter_inc: "Incluziune",
+        p1_cat: "Educație Civică",
+        p1_title: "Laboratorul de Democrație pentru Liceeni",
+        p1_desc: "Ateliere interactive și simulări de dezbateri parlamentare în licee privind statul de drept, separarea puterilor și gândirea critică.",
+        p2_cat: "Erasmus+ & Mobilitate",
+        p2_title: "Erasmus+ Youth Dialogue & Mobility",
+        p2_desc: "Consorțiu european în parteneriat cu organizații de tineret din Germania, Franța și Polonia axat pe dialog intercultural și mobilități educaționale.",
+        p3_cat: "Media Literacy",
+        p3_title: "Ghidul Tânărului Informat & Anti-Fake News",
+        p3_desc: "Ghiduri digitale și sesiuni practice de fact-checking pentru tineri pentru demontarea dezinformării și detectarea conținutului generat cu AI.",
+        p4_cat: "Mediu",
+        p4_title: "Comunități Verzi & Economie Circulară",
+        p4_desc: "Inițiativă civică de conștientizare ecologică urbană, colectare responsabilă și reducerea risipei prin ateliere comunitare.",
+        p5_cat: "Incluziune",
+        p5_title: "Caravana Egalității de Șanse",
+        p5_desc: "Consiliere civică și educațională pentru tinerii din mediul rural sau grupuri vulnerabile, oferind mentorat și burse de dezvoltare.",
+        status_active: "Activ 2026",
+        status_pilot: "Ediție Pilot",
+        status_planned: "În Pregătire",
+        btn_join_proj: "Participă →",
+        team_hero_badge: "ECHIPĂ & GUVERNANȚĂ STATUTARĂ",
+        team_t1: "Oamenii din spatele",
+        team_t2: "viziunii noastre",
+        team_sub: "O echipă dedicată de tineri profesioniști uniți de misiunea comună de a consolida democrația participativă și transparența publică.",
+        board_tag: "Organ Executiv Statutar",
+        board_title: "Consiliul Director",
+        role_pres: "Președinte & Fondator",
+        role_vice: "Vicepreședinte",
+        role_sec: "Secretar General",
+        tag_exec: "Executiv",
+        tag_strat: "Strategie & Legal",
+        tag_erasmus: "Erasmus+",
+        tag_youth: "Politici Tineret",
+        tag_gov: "Guvernanță",
+        tag_admin: "Administrație",
+        bio_mihai: "Coordonarea viziunii strategice, reprezentare legală și relații instituționale, dezvoltarea parteneriatelor europene și supravegherea conformității statutare.",
+        bio_stefan: "Supervizarea programelor operaționale dedicate tineretului, coordonarea proiectelor europene (Erasmus+), educație non-formală și facilitare de inițiative civice.",
+        bio_david: "Asigurarea bunei funcționări administrative, gestiunea registrului de membri și voluntari, conformitatea statutară și comunicarea internă.",
+        dept_tag: "Structură Executivă",
+        dept_title: "Departamente Operaționale",
+        dep_1_t: "Educație & Tineret",
+        dep_1_d: "Ateliere civice, competiții de debate și mentorat pentru tineri.",
+        dep_2_t: "Politici Publice & Democrație",
+        dep_2_d: "Monitorizarea deciziilor publice și rapoarte de transparență.",
+        dep_3_t: "Incluziune Socială & Drepturi",
+        dep_3_d: "Sprijin pentru tinerii din medii vulnerabile și acces echitabil.",
+        dep_4_t: "Digitalizare & Media",
+        dep_4_d: "Campanii anti-fake news, educație cibernetică și tehnologii etice.",
+        dep_5_t: "Mediu & Sustenabilitate",
+        dep_5_d: "Campanii ecologice și economie circulară în comunități locale.",
+        dep_6_t: "Comunicare & PR",
+        dep_6_d: "Branding civic, relații cu presa și organizarea evenimentelor.",
+        footer_desc: "Asociația „Centrul pentru Reformă, Echitate și Democrație” este o organizație apolitică, non-guvernamentală și non-profit.",
+        footer_links: "Navigație Rapidă",
+        footer_gov: "Guvernanță & Integritate",
+        gov_1: "Statutul Asociației C.R.E.D.",
+        gov_2: "Raport Financiar & Activitate",
+        gov_3: "Cod de Conduită & Etică",
+        gov_4: "Confidențialitate & GDPR",
+        footer_contact: "Contact Oficial",
+        footer_tagline: "Construim comunități democratice și transparente."
+      },
+      en: {
+        nav_home: "Home",
+        nav_projects: "Projects",
+        nav_team: "Team",
+        nav_get_involved: "Get Involved",
+        nav_contact: "Contact",
+        btn_donate: "Donate / Support",
+        home_hero_badge: "ORGANIZATION FOR CIVIC REFORMS",
+        hero_t1: "For an",
+        hero_t2: "equitable, democratic",
+        hero_t3: "and future-oriented",
+        hero_t4: "society.",
+        hero_desc: "C.R.E.D. Association catalyzes youth engagement, institutional integrity and innovative civic solutions for sustainable communities across Romania.",
+        btn_view_projects: "Explore Our Projects",
+        btn_view_team: "Meet the C.R.E.D. Team →",
+        stat_pillars: "Strategic Pillars",
+        stat_transparency: "Transparency & Accountability",
+        stat_volunteers: "Volunteers & Collaborators",
+        stat_board: "Founding Members",
+        about_tag: "Identity & Mission",
+        about_title: "About C.R.E.D. Association",
+        about_text: "The 'Center for Reform, Equity and Democracy' (C.R.E.D.) was founded by a passionate young generation dedicated to actively shaping Romania's future. We are a non-governmental, non-partisan organization building civic leaders and social equity.",
+        about_f1: "Fostering constructive dialogue among public decision-makers, universities, and local communities.",
+        about_f2: "Developing civic education, critical thinking programs, and combatting disinformation.",
+        about_f3: "Ensuring equal opportunities for youth from rural areas and vulnerable environments.",
+        about_card_sub: "Ministry of Justice Proof: 229231",
+        about_quote: "“Democracy is not merely a constitutional framework, but a daily practice of responsibility, civic courage, and community solidarity.”",
+        stat_apolitical: "Non-partisan & Independent",
+        stat_impact: "National & EU Initiatives",
+        pillars_tag: "Impact Focus",
+        pillars_title: "Strategic Action Pillars",
+        pillars_desc: "Our civic interventions focus on 6 fundamental directions essential for contemporary society.",
+        pil_1_title: "Education & Training",
+        pil_1_desc: "Critical thinking workshops, civic debate simulations, and non-formal leadership programs for youth.",
+        pil_2_title: "Democracy & Civics",
+        pil_2_desc: "Monitoring public policy decisions, publishing transparency reports, and promoting voter turnout.",
+        pil_3_title: "Social Inclusion",
+        pil_3_desc: "Supporting vulnerable youth in rural communities, reducing disparities, and fostering dignity.",
+        pil_4_title: "Digital & Media Literacy",
+        pil_4_desc: "Tackling disinformation, cyber hygiene, and promoting the ethical use of artificial intelligence.",
+        pil_5_title: "Environment & Green",
+        pil_5_desc: "Ecological responsibility, grassroots circular economy, and community green transitions.",
+        pil_6_title: "Social Enterprise",
+        pil_6_desc: "Mentoring ethical youth startups and connecting civic initiatives with European funding.",
+        involve_tag: "Active Participation",
+        involve_title: "How You Can Get Involved",
+        involve_desc: "Every contribution matters. Choose how you would like to support our shared mission.",
+        inv_1_t: "Become a Volunteer",
+        inv_1_d: "Join workshop management, civic research report drafting, or public communication.",
+        inv_1_b: "Apply as Volunteer",
+        inv_2_t: "Redirect 3.5% Tax",
+        inv_2_d: "Direct 3.5% of your income tax to C.R.E.D. at zero additional personal cost.",
+        inv_2_b: "Request Tax Form 230",
+        inv_3_t: "Institutional Partners",
+        inv_3_d: "Support long-term initiatives through university partnerships, CSR sponsorships, or civic pacts.",
+        inv_3_b: "Contact Us",
+        contact_tag: "Connect",
+        contact_title: "Get in Touch or Apply",
+        contact_sub: "Drop us a note and the C.R.E.D. team will respond as soon as possible.",
+        form_success: "Your message has been sent successfully! Thank you.",
+        lbl_name: "Full Name *",
+        lbl_email: "Email *",
+        lbl_phone: "Phone Number",
+        lbl_interest: "Area of Interest",
+        lbl_msg: "Message *",
+        ph_name: "e.g. John Doe",
+        ph_email: "e.g. contact@example.org",
+        ph_phone: "0772 142 186",
+        ph_msg: "How would you like to collaborate or why do you want to join C.R.E.D.?",
+        opt_1: "Education & Democracy",
+        opt_2: "Erasmus+ & Youth",
+        opt_3: "Media Literacy & Digital",
+        opt_4: "Environment & Sustainability",
+        opt_5: "General Volunteering",
+        btn_send: "Send Message",
+        proj_hero_badge: "CIVIC IMPACT IN ACTION",
+        proj_t1: "Projects and",
+        proj_t2: "Civic Initiatives",
+        proj_sub: "Transforming democratic principles, transparency, and solidarity into measurable actions for youth.",
+        stat_p_active: "Active Projects",
+        stat_p_beneficiaries: "Youth Beneficiaries",
+        stat_p_partners: "EU & National Partners",
+        stat_p_civic: "Civic Non-profit",
+        filter_all: "All",
+        filter_edu: "Education & Democracy",
+        filter_erasmus: "Erasmus+ & Youth",
+        filter_media: "Media & Digital",
+        filter_eco: "Ecology",
+        filter_inc: "Inclusion",
+        p1_cat: "Civic Education",
+        p1_title: "Democracy Lab for High Schoolers",
+        p1_desc: "Interactive workshops and parliamentary simulations on rule of law, separation of powers, and civic debate.",
+        p2_cat: "Erasmus+ & Mobility",
+        p2_title: "Erasmus+ Youth Dialogue & Mobility",
+        p2_desc: "European consortium partnered with youth NGOs from Germany, France, and Poland focused on cross-border dialogues.",
+        p3_cat: "Media Literacy",
+        p3_title: "Informed Youth Guide & Anti-Disinformation",
+        p3_desc: "Digital guidebooks and practical fact-checking sessions empowering youth to counter online misinformation.",
+        p4_cat: "Environment",
+        p4_title: "Green Communities & Circular Economy",
+        p4_desc: "Grassroots ecological workshops encouraging urban recycling, reduced waste, and sustainable habits.",
+        p5_cat: "Inclusion",
+        p5_title: "Equal Opportunities Caravan",
+        p5_desc: "Educational and civic guidance for youth in rural or vulnerable settings, delivering mentorship and access.",
+        status_active: "Active 2026",
+        status_pilot: "Pilot Edition",
+        status_planned: "Upcoming",
+        btn_join_proj: "Participate →",
+        team_hero_badge: "TEAM & STATUTORY GOVERNANCE",
+        team_t1: "The people behind",
+        team_t2: "our vision",
+        team_sub: "A dedicated group of young professionals committed to strengthening participatory democracy and public transparency.",
+        board_tag: "Executive Statutory Body",
+        board_title: "Board of Directors",
+        role_pres: "President & Founder",
+        role_vice: "Vice President",
+        role_sec: "Secretary General",
+        tag_exec: "Executive",
+        tag_strat: "Strategy & Legal",
+        tag_erasmus: "Erasmus+",
+        tag_youth: "Youth Policy",
+        tag_gov: "Governance",
+        tag_admin: "Administration",
+        bio_mihai: "Leading strategic orientation, legal representation, institutional dialogue, and overseeing statutory compliance.",
+        bio_stefan: "Overseeing youth operations, coordinating European Erasmus+ projects, non-formal learning, and civic facilitation.",
+        bio_david: "Ensuring effective administrative governance, managing membership registries, legal compliance, and internal operations.",
+        dept_tag: "Executive Structure",
+        dept_title: "Operational Departments",
+        dep_1_t: "Education & Youth",
+        dep_1_d: "Civic workshops, debate initiatives, and youth leadership training.",
+        dep_2_t: "Public Policy & Democracy",
+        dep_2_d: "Monitoring public policies and publishing transparency reports.",
+        dep_3_t: "Social Inclusion & Rights",
+        dep_3_d: "Empowering vulnerable communities and enabling equal opportunities.",
+        dep_4_t: "Digitalization & Media",
+        dep_4_d: "Anti-disinformation campaigns, cybersecurity, and ethical tech.",
+        dep_5_t: "Environment & Sustainability",
+        dep_5_d: "Local ecological initiatives and circular economy practices.",
+        dep_6_t: "Communication & PR",
+        dep_6_d: "Civic branding, media relations, and official public events.",
+        footer_desc: "The 'Center for Reform, Equity and Democracy' is an independent, non-partisan, non-profit non-governmental organization.",
+        footer_links: "Quick Navigation",
+        footer_gov: "Governance & Ethics",
+        gov_1: "C.R.E.D. Association Bylaws",
+        gov_2: "Annual & Financial Report",
+        gov_3: "Code of Ethics & Conduct",
+        gov_4: "Privacy & GDPR Policy",
+        footer_contact: "Official Contact",
+        footer_tagline: "Building democratic and transparent communities."
+      }
+    };
+
+    window.setLanguage = function(lang) {
+      const btnRo = document.getElementById('lang-btn-ro');
+      const btnEn = document.getElementById('lang-btn-en');
+
+      if (lang === 'en') {
+        btnEn.className = 'lang-active px-2.5 py-1 rounded transition cursor-pointer';
+        btnRo.className = 'lang-inactive px-2.5 py-1 rounded transition cursor-pointer';
+      } else {
+        btnRo.className = 'lang-active px-2.5 py-1 rounded transition cursor-pointer';
+        btnEn.className = 'lang-inactive px-2.5 py-1 rounded transition cursor-pointer';
+      }
+
+      const dict = I18N[lang] || I18N.ro;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) el.textContent = dict[key];
+      });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (dict[key]) el.placeholder = dict[key];
+      });
+    };
   </script>
-</body>
-</html>
+</body></html>
